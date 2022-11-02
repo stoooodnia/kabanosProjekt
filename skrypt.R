@@ -14,3 +14,7 @@ plot(makaron_zamk)
 
 hist(kabanos_zamk, prob=TRUE)
 hist(makaron_zamk, prob=TRUE)
+
+# zad2
+
+
