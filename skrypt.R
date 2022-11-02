@@ -1,5 +1,5 @@
-dane_kabanos <- read.csv("/Users/karolstudniarek/Desktop/REPOZYTORIA/kabanosProjekt/csvki/tar_d_compared_with_mak.csv")
-dane_makaron <- read.csv("/Users/karolstudniarek/Desktop/REPOZYTORIA/kabanosProjekt/csvki/mak_d_compared_with_tar.csv")
+dane_kabanos <- read.csv("kabanosProjekt/csvki/tar_d_compared_with_mak.csv")
+dane_makaron <- read.csv("kabanosProjekt/csvki/mak_d_compared_with_tar.csv")
 
 # zad1 
 
