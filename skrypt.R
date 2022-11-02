@@ -34,7 +34,7 @@ kurtosis(makaron_zamk)
 
 # zad3
 
-s
+X <- rpois(100, kabanos_zamk)
 
-
-
+N <- table(X); N
+plot(N)
