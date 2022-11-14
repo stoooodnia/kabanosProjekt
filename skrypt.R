@@ -10,13 +10,15 @@ dane_makaron <- read.csv("./csvki/mak_d_compared_with_tar.csv")
 kabanos_zamk <- dane_kabanos[,'Zamkniecie']
 makaron_zamk <- dane_makaron[,'Zamkniecie']
 
-plotdist(kabanos_zamk, histo = TRUE, demp = FALSE)
-plotdist(makaron_zamk, histo = TRUE, demp = FALSE)
+plotdist(kabanos_zamk, histo = TRUE, demp = TRUE)
+plotdist(makaron_zamk, histo = TRUE, demp = TRUE)
+
+?plotdist
 
 # zad2
 
-descdist(kabanos_zamk, boot = 1000)
-descdist(makaron_zamk, boot = 1000)
+descdist(kabanos_zamk, boot = 1001)
+descdist(makaron_zamk, boot = 1001)
 
 # zad3
 
