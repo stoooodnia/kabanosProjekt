@@ -70,8 +70,59 @@ ppcomp(list(mfn, mfln, mfw), legendtext = plot.legend)
 
 gofstat(list(kfn, kfln, kfw), fitnames = c("norm","lnorm", "weibull"))
 gofstat(list(mfn, mfln, mfw), fitnames = c("norm","lnorm", "weibull"))
+# ZAD 5
+N <- 10000
+n_kab <- length(kabanos_zamk); n
+
+Dln <- c()
+
+for (i in 1:N) {
+  Yln <- rlnorm(n_peo, estimated_param_lnorm$estimate[1], estimated_param_lnorm$estimate[2])
+  
+  Dln[i] <- ks.test(Yln, plnorm, estimated_param_lnorm$estimate[1],estimated_param_lnorm$estimate[2],exact=TRUE)$statistic
+}
 
 
+dn_ln <- ks.test(kabanos_zamk, plnorm, estimated_param_lnorm$estimate[1],estimated_param_lnorm$estimate[2],exact=TRUE)$statistic
+dn_ln
+
+par(mfrow=c(1,1))
+hist(Dln,prob=T, main = "Histogram", xlim = c(0,0.14))
+points(dn_ln,0,pch=19,col=2)
+dev.off()
+
+p_value_ln <- length(Dln[Dln>dn_ln])/N; p_value_ln
+
+#wartosci p-value rowne zero,oznaczają, że przy dowolnie przyjetym poziomie istotnosci
+#hipoteze o rownosci rozkladow odrzucamy
+
+
+# ZAD 5
+N <- 10000
+n_peo <- length(kab); n
+
+Dln <- c()
+
+for (i in 1:N) {
+  Yln <- rlnorm(n_peo, estimated_param_lnorm$estimate[1], estimated_param_lnorm$estimate[2])
+  
+  Dln[i] <- ks.test(Yln, plnorm, estimated_param_lnorm$estimate[1],estimated_param_lnorm$estimate[2],exact=TRUE)$statistic
+}
+
+
+dn_ln <- ks.test(peo_close, plnorm, estimated_param_lnorm$estimate[1],estimated_param_lnorm$estimate[2],exact=TRUE)$statistic
+dn_ln
+
+png("img/peo_hist_hip.png", width = 1000, height = 600, units = 'px', res = 100)
+par(mfrow=c(1,1))
+hist(Dln,prob=T, main = "Histogram", xlim = c(0,0.14))
+points(dn_ln,0,pch=19,col=2)
+dev.off()
+
+p_value_ln <- length(Dln[Dln>dn_ln])/N; p_value_ln
+
+#wartosci p-value rowne zero,oznaczają, że przy dowolnie przyjetym poziomie istotnosci
+#hipoteze o rownosci rozkladow odrzucamy
 
 
 
